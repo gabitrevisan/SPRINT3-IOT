@@ -1,0 +1,594 @@
+[
+    {
+        "id": "6c0b2e6f45459418",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "677ac4230ed9c1fa",
+        "type": "ui_group",
+        "name": "Poluição",
+        "tab": "6f128b0e8e311c94",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e1ea6e4801dc4f3a",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "6f128b0e8e311c94",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "53482f93bd41eccf",
+        "type": "inject",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 220,
+        "wires": [
+            [
+                "aa6ecccd9f0b11d6"
+            ]
+        ]
+    },
+    {
+        "id": "aa6ecccd9f0b11d6",
+        "type": "http request",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://api.openweathermap.org/data/2.5/air_pollution?lat=50&lon=50&appid=2aa71035e3e3110f5b793dce7311a79e",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [
+                "dd3854675a549dcb"
+            ]
+        ]
+    },
+    {
+        "id": "dd3854675a549dcb",
+        "type": "json",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 570,
+        "y": 220,
+        "wires": [
+            [
+                "6c4e21e0169b9c3d",
+                "227ace3469762d85",
+                "077f7a7674426f51",
+                "e14a86dd39f70df5",
+                "e66d4a6d356cbe8c",
+                "c697d7f280ee8753"
+            ]
+        ]
+    },
+    {
+        "id": "6c4e21e0169b9c3d",
+        "type": "change",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.main.components.co",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 120,
+        "wires": [
+            [
+                "5bbdc1934a84c0be"
+            ]
+        ]
+    },
+    {
+        "id": "227ace3469762d85",
+        "type": "change",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.main.components.no",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 180,
+        "wires": [
+            [
+                "1db3e45f2a3e72f1"
+            ]
+        ]
+    },
+    {
+        "id": "077f7a7674426f51",
+        "type": "change",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.main.components.no2",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 240,
+        "wires": [
+            [
+                "de3bcf21604e1468"
+            ]
+        ]
+    },
+    {
+        "id": "e14a86dd39f70df5",
+        "type": "change",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.main.components.o3",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 300,
+        "wires": [
+            [
+                "6ce2c9e58b9db0cf"
+            ]
+        ]
+    },
+    {
+        "id": "5bbdc1934a84c0be",
+        "type": "ui_gauge",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "group": "677ac4230ed9c1fa",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "CO",
+        "label": "",
+        "format": "{{value}}",
+        "min": "1",
+        "max": "300",
+        "colors": [
+            "#b31eae",
+            "#b31eae",
+            "#b31eae"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1030,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "de3bcf21604e1468",
+        "type": "ui_gauge",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "group": "677ac4230ed9c1fa",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "NO2",
+        "label": "",
+        "format": "",
+        "min": "1",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1030,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1db3e45f2a3e72f1",
+        "type": "ui_chart",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "group": "677ac4230ed9c1fa",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "NO",
+        "chartType": "horizontalBar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "1",
+        "ymax": "40",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": true,
+        "useUTC": false,
+        "colors": [
+            "#b31eae",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": true,
+        "className": "",
+        "x": 1030,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6ce2c9e58b9db0cf",
+        "type": "ui_chart",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "group": "677ac4230ed9c1fa",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "O3",
+        "chartType": "horizontalBar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "1",
+        "ymax": "5",
+        "removeOlder": "15",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": true,
+        "useUTC": false,
+        "colors": [
+            "#0692ea",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1030,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e66d4a6d356cbe8c",
+        "type": "change",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.main.components.so2",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 360,
+        "wires": [
+            [
+                "2c8d1e46a735a238"
+            ]
+        ]
+    },
+    {
+        "id": "2c8d1e46a735a238",
+        "type": "ui_chart",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "group": "677ac4230ed9c1fa",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "SO2",
+        "chartType": "horizontalBar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "1",
+        "ymax": "5",
+        "removeOlder": "15",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": true,
+        "useUTC": false,
+        "colors": [
+            "#0692ea",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1030,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c697d7f280ee8753",
+        "type": "change",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.main.components.nh3",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 420,
+        "wires": [
+            [
+                "08e28ed4288ef35d"
+            ]
+        ]
+    },
+    {
+        "id": "08e28ed4288ef35d",
+        "type": "ui_chart",
+        "z": "6c0b2e6f45459418",
+        "name": "",
+        "group": "677ac4230ed9c1fa",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "NH3",
+        "chartType": "horizontalBar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "1",
+        "ymax": "5",
+        "removeOlder": "15",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": true,
+        "useUTC": false,
+        "colors": [
+            "#0692ea",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1030,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    }
+]
